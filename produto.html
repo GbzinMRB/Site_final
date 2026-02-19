@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Produto | BELMONT TIME</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .product-page {
+            padding: 15vh 5vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+        }
+        .product-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            width: 100%;
+        }
+        .product-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+        .product-details h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+        .product-details h3 {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+        .product-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+        .product-price {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+        }
+        @media (max-width: 768px) {
+            .product-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav style="position: fixed; top: 2rem; left: 5vw; z-index: 100;">
+        <a href="index.html" class="btn btn-light" style="padding: 0.5rem 1rem; font-size: 0.8rem;">&larr; Voltar</a>
+    </nav>
+
+    <section class="product-page">
+        <div class="product-container" id="product-content">
+            <!-- Conteúdo será preenchido via JS -->
+            <p>Carregando detalhes do relógio...</p>
+        </div>
+    </section>
+
+    <script src="relogios.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+            const container = document.getElementById('product-content');
+
+            if (id !== null && relogios[id]) {
+                const rel = relogios[id];
+                document.title = `${rel.nome} | BELMONT TIME`;
+                
+                container.innerHTML = `
+                    <div class="product-image">
+                        <img src="${rel.img}" alt="${rel.nome}">
+                    </div>
+                    <div class="product-details">
+                        <h1>${rel.nome}</h1>
+                        <h3>${rel.sub}</h3>
+                        <div style="width: 50px; height: 2px; background: var(--accent); margin-bottom: 2rem;"></div>
+                        <p class="product-description">${rel.descricao}</p>
+                        <div class="product-price">${rel.preco}</div>
+                        <a href="#" class="btn btn-light">Solicitar Reserva</a>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = "<h1>Produto não encontrado</h1><a href='index.html' class='btn btn-light'>Voltar ao Início</a>";
+            }
+        });
+    </script>
+</body>
+</html>
