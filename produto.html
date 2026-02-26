@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../static/styles.css">
     <style>
         .product-page {
             padding: 15vh 5vw;
@@ -65,7 +65,7 @@
 </head>
 <body>
     <nav style="position: fixed; top: 2rem; left: 5vw; z-index: 100;">
-        <a href="index.html" class="btn btn-light" style="padding: 0.5rem 1rem; font-size: 0.8rem;">&larr; Voltar</a>
+        <a href="../templates/index.html" class="btn btn-light" style="padding: 0.5rem 1rem; font-size: 0.8rem;">&larr; Voltar</a>
     </nav>
 
     <section class="product-page">
@@ -75,7 +75,7 @@
         </div>
     </section>
 
-    <script src="relogios.js"></script>
+    <script src="../static/relogios.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const params = new URLSearchParams(window.location.search);
@@ -100,7 +100,7 @@
                     </div>
                 `;
             } else {
-                container.innerHTML = "<h1>Produto não encontrado</h1><a href='index.html' class='btn btn-light'>Voltar ao Início</a>";
+                container.innerHTML = "<h1>Produto não encontrado</h1><a href='../templates/index.html' class='btn btn-light'>Voltar ao Início</a>";
             }
         });
     </script>

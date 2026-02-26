@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../static/styles.css">
     <style>
         /* Estilos específicos para a página de coleção */
         .collection-header {
@@ -31,7 +31,7 @@
 <body>
 
     <nav class="nav-back">
-        <a href="index.html" class="btn btn-light" style="padding: 0.5rem 1rem; font-size: 0.8rem;">&larr; Voltar</a>
+        <a href="../templates/index.html" class="btn btn-light" style="padding: 0.5rem 1rem; font-size: 0.8rem;">&larr; Voltar</a>
     </nav>
 
     <header class="collection-header">
@@ -50,8 +50,8 @@
         <p class="copyright">&copy; 2026 Belmont Time. Todos os direitos reservados. Excelência em Relojoaria.</p>
     </footer>
 
-    <script src="relogios.js"></script>
-    <script src="script.js"></script>
+    <script src="../static/relogios.js"></script>
+    <script src="../static/script.js"></script>
     <script>
         const container = document.getElementById('gallery-container');
         relogios.forEach((rel, index) => {
